@@ -28,3 +28,8 @@ This is a web application built with a React frontend and a .NET Core Web API ba
 -   **Delete Product (Admin only):** `DELETE  /api/Product/{id}`
 -   **Update Product (Admin only):** `PUT  /api/Product/{id}`
 
+## Screenshot of UI
+
+![Sign In](https://github.com/Aamir3644/Weoto_Assignment/assets/91945871/f2bbf4e9-8d57-401f-88ba-96ff11d348d4)
+
+
