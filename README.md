@@ -31,15 +31,19 @@ This is a web application built with a React frontend and a .NET Core Web API ba
 ## Screenshot of UI
 
 -  **Sign In**
+  
 ![Sign In](https://github.com/Aamir3644/Weoto_Assignment/assets/91945871/f2bbf4e9-8d57-401f-88ba-96ff11d348d4)
 
 -  **Create Account**
+
 ![Create Account](https://github.com/Aamir3644/Weoto_Assignment/assets/91945871/da2f3d4e-887b-432a-b2f0-0fbc2b9e3ffc)
 
 -  **Admin View to Product List Page**
+  
 ![Admin Products Page](https://github.com/Aamir3644/Weoto_Assignment/assets/91945871/6f5f6b19-edf1-4a73-9471-0fa0043086f2)
 
 -  **User View to Product List Page**
+  
 ![User Products Page](https://github.com/Aamir3644/Weoto_Assignment/assets/91945871/5c870a7b-9240-43ee-8a91-646b07c09cf3)
 
 
