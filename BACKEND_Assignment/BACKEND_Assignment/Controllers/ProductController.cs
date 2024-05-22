@@ -26,6 +26,7 @@ namespace BACKEND_Assignment.Controllers
             return Ok(products);
         }
 
+
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddProduct([FromBody] ProductDTO productDto)
