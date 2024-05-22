@@ -43,7 +43,7 @@ namespace BACKEND_Assignment.Controllers
             _context.Product.Add(product);
             await _context.SaveChangesAsync();
 
-            return Created(string.Empty, product);  // Return 201 Created status code with the product entity
+            return Created(string.Empty, product);
         }
 
         [HttpPut("{id}")]

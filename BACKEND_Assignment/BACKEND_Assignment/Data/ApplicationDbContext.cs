@@ -36,7 +36,7 @@ namespace BACKEND_Assignment.Data
                 entity.Property(e => e.Price).IsRequired();
             });
 
-            // Seed admin user
+            // Adding 1 Admin User at the start
             var adminUser = new User
             {
                 Id = 1,
