@@ -49,6 +49,10 @@ namespace BACKEND_Assignment.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -63,13 +67,17 @@ namespace BACKEND_Assignment.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("MobileNumber")
+                        .IsUnique();
+
                     b.ToTable("User");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Password = "$2a$11$uVcMcT20ZTH9995eUfVFf.gutZCAgazVWzKQGffgrFHp7/ymj5.ZK",
+                            MobileNumber = "8456457899",
+                            Password = "$2a$11$vnN4BsNopqxJa591.Fu.eePm/.To/mfz/QPHduyjZhvlCxqvNrd7y",
                             Role = "Admin",
                             UserName = "admin"
                         });

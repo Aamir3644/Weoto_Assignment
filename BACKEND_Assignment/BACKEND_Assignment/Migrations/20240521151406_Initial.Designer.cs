@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BACKEND_Assignment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240520135434_Initial")]
+    [Migration("20240521151406_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -52,6 +52,10 @@ namespace BACKEND_Assignment.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -66,7 +70,20 @@ namespace BACKEND_Assignment.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("MobileNumber")
+                        .IsUnique();
+
                     b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            MobileNumber = "8456457899",
+                            Password = "$2a$11$vnN4BsNopqxJa591.Fu.eePm/.To/mfz/QPHduyjZhvlCxqvNrd7y",
+                            Role = "Admin",
+                            UserName = "admin"
+                        });
                 });
 #pragma warning restore 612, 618
         }

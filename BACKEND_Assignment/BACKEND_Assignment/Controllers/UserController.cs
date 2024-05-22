@@ -26,15 +26,20 @@ namespace BACKEND_Assignment.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var existingUser = await _context.User.FirstOrDefaultAsync(u => u.UserName == userDto.UserName);
-            if (existingUser != null)
-                return BadRequest("User already exists");
+            var existingUserByUsername = await _context.User.FirstOrDefaultAsync(u => u.UserName == userDto.UserName);
+            if (existingUserByUsername != null)
+                return BadRequest("Username already exists");
+
+            var existingUserByMobileNumber = await _context.User.FirstOrDefaultAsync(u => u.MobileNumber == userDto.MobileNumber);
+            if (existingUserByMobileNumber != null)
+                return BadRequest("Account with this mobile number already exists");
 
             var user = new User
             {
                 UserName = userDto.UserName,
                 Password = BCrypt.Net.BCrypt.HashPassword(userDto.Password),
-                Role = "User"
+                Role = "User",
+                MobileNumber = userDto.MobileNumber
             };
 
             _context.User.Add(user);
@@ -44,13 +49,13 @@ namespace BACKEND_Assignment.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserDTO userDto)
+        public async Task<IActionResult> Login([FromBody] LoginDTO loginDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var user = await _context.User.FirstOrDefaultAsync(u => u.UserName == userDto.UserName);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(userDto.Password, user.Password))
+            var user = await _context.User.FirstOrDefaultAsync(u => u.UserName == loginDto.UserName);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
                 return Unauthorized("Invalid username or password");
 
             var token = _tokenService.GenerateToken(user);

@@ -32,12 +32,24 @@ namespace BACKEND_Assignment.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MobileNumber = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "MobileNumber", "Password", "Role", "UserName" },
+                values: new object[] { 1, "8456457899", "$2a$11$vnN4BsNopqxJa591.Fu.eePm/.To/mfz/QPHduyjZhvlCxqvNrd7y", "Admin", "admin" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_MobileNumber",
+                table: "User",
+                column: "MobileNumber",
+                unique: true);
         }
 
         /// <inheritdoc />

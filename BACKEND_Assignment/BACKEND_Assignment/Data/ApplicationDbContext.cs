@@ -24,6 +24,8 @@ namespace BACKEND_Assignment.Data
                 entity.Property(e => e.UserName).IsRequired();
                 entity.Property(e => e.Password).IsRequired();
                 entity.Property(e => e.Role).IsRequired();
+                entity.Property(e => e.MobileNumber).IsRequired();
+                entity.HasIndex(e => e.MobileNumber).IsUnique();
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -39,8 +41,9 @@ namespace BACKEND_Assignment.Data
             {
                 Id = 1,
                 UserName = "admin",
-                Password = BCrypt.Net.BCrypt.HashPassword("Admin@123"), // Use a secure password
-                Role = "Admin"
+                Password = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
+                Role = "Admin",
+                MobileNumber = "8456457899"
             };
 
             modelBuilder.Entity<User>().HasData(adminUser);

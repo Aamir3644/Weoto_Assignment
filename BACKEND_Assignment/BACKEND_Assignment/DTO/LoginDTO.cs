@@ -2,7 +2,7 @@
 
 namespace BACKEND_Assignment.DTO
 {
-    public class UserDTO
+    public class LoginDTO
     {
         [Required]
         public string UserName { get; set; }
@@ -10,8 +10,5 @@ namespace BACKEND_Assignment.DTO
         [Required]
         public string Password { get; set; }
 
-        [Required]
-        [Phone]
-        public string MobileNumber { get; set; }
     }
 }

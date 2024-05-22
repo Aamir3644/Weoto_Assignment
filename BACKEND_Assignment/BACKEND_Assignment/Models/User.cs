@@ -14,5 +14,9 @@ namespace BACKEND_Assignment.Models
 
         [Required]
         public string Role { get; set; }
+
+        [Required]
+        [Phone]
+        public string MobileNumber { get; set; }
     }
 }

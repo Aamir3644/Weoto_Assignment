@@ -136,3 +136,4 @@ C:\Users\91841\Desktop\Assignment_Weoto\BACKEND_Assignment\BACKEND_Assignment\ob
 C:\Users\91841\Desktop\Assignment_Weoto\BACKEND_Assignment\BACKEND_Assignment\obj\Debug\net8.0\ref\BACKEND_Assignment.dll
 C:\Users\91841\Desktop\Assignment_Weoto\BACKEND_Assignment\BACKEND_Assignment\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\91841\Desktop\Assignment_Weoto\BACKEND_Assignment\BACKEND_Assignment\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\91841\Desktop\Assignment_Weoto\BACKEND_Assignment\BACKEND_Assignment\obj\Debug\net8.0\BACKEND_Assignment.sourcelink.json
