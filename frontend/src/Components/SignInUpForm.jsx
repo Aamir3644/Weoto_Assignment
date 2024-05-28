@@ -48,7 +48,7 @@ const SignInUpForm = () => {
         username,
         password,
       });
-      console.log('SignIn Success:', response.data);
+      
       setMessage('');
       localStorage.setItem('token', response.data.token);
       navigate('/products'); // Navigate to Product List Page

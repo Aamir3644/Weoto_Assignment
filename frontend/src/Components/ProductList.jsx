@@ -48,7 +48,7 @@ const ProductList = () => {
     const token = localStorage.getItem('token');
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      console.log("payload fetched from token : " + payload.role);
+      
       setUserRole(payload.role);
     } catch (error) {
       console.error(error);
@@ -77,7 +77,7 @@ const ProductList = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value //ES6 Syntax - computed property names - dynamically setting the key of an object
     });
   };
 
