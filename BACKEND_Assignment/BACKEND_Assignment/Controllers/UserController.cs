@@ -26,10 +26,6 @@ namespace BACKEND_Assignment.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var existingUserByUsername = await _context.User.FirstOrDefaultAsync(u => u.UserName == userDto.UserName);
-            if (existingUserByUsername != null)
-                return BadRequest("Username already exists");
-
             var existingUserByMobileNumber = await _context.User.FirstOrDefaultAsync(u => u.MobileNumber == userDto.MobileNumber);
             if (existingUserByMobileNumber != null)
                 return BadRequest("Account with this mobile number already exists");

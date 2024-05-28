@@ -18,6 +18,8 @@ namespace BACKEND_Assignment.Controllers
             _context = context;
         }
 
+        // Fetching all products
+        // Allowed for both - User and Admin
         [HttpGet]
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetProducts()
@@ -26,7 +28,8 @@ namespace BACKEND_Assignment.Controllers
             return Ok(products);
         }
 
-
+        // Adding Product
+        // Only Allowed to Admin
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddProduct([FromBody] ProductDTO productDto)
@@ -46,6 +49,8 @@ namespace BACKEND_Assignment.Controllers
             return Created(string.Empty, product);
         }
 
+        // Updating the Product
+        // Only Allowed to Admin
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductDTO productDto)
@@ -66,6 +71,8 @@ namespace BACKEND_Assignment.Controllers
             return NoContent();
         }
 
+        // Deleting the Product
+        // Only Allowed to Admin
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteProduct(int id)
